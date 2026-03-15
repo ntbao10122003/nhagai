@@ -15932,6 +15932,7 @@ margin:10px 5px;
 .box-container-member-form.active {
     opacity: 0;
     transition:0.5s ease;
+    display: none;
 }
 @media(max-width:990px){
     .box-icon-item-2 {
