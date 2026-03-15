@@ -15928,6 +15928,11 @@ margin:10px 5px;
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
+.box-container-member-form.active {
+    opacity: 0;
+    transition:0.5s ease;
+}
 @media(max-width:990px){
     .box-icon-item-2 {
     top: -300px;

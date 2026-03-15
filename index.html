@@ -402,7 +402,7 @@
         </main>
       </div>
     </div>
-    <!-- <div style="background:linear-gradient(to bottom right, #ba4a59, #ae4c51, #9e3c41)" class="jsx-a4d80d259781d393 fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
+    <div style="background:linear-gradient(to bottom right, #ba4a59, #ae4c51, #9e3c41)" class=" box-container-member-form jsx-a4d80d259781d393 fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
     <div class="jsx-a4d80d259781d393 absolute inset-0 pointer-events-none overflow-hidden" style="z-index: 1;">
       <div class="jsx-a4d80d259781d393 absolute" style="left: 73.0303%; top: -30px; bottom: auto; color: rgb(255, 192, 203); font-size: 23.0251px; --sway: 1.0305332604911444px; animation: 16.2471s ease-in-out -2.5s infinite normal none running ambient-fall;">🌸</div>
       <div class="jsx-a4d80d259781d393 absolute" style="left: 32.5631%; top: -30px; bottom: auto; color: rgb(255, 105, 180); font-size: 15.1158px; --sway: -14.863267091661417px; animation: 14.293s ease-in-out -2.2s infinite normal none running ambient-fall;">🌸</div>
@@ -433,7 +433,7 @@
               <div style="color:rgba(138, 58, 69, 0.8);font-family:&quot;Lora&quot;, &quot;Times New Roman&quot;, serif" class="jsx-a4d80d259781d393 text-[18px] mb-5 flex flex-col items-center"><span>29 tháng 3, 2026</span></div>
               <div class="jsx-a4d80d259781d393 mb-6">
                 <p style="color:rgba(138, 58, 69, 0.8);font-family:&quot;Lora&quot;, &quot;Times New Roman&quot;, serif" class="jsx-a4d80d259781d393 text-[18px] font-light mb-2"><span>Thân Mời</span></p>
-              </div><button style="background-color:#ba4a59;color:#ffffff;box-shadow:0 4px 14px rgba(186, 74, 89, 0.35);font-family:&quot;Lora&quot;, &quot;Times New Roman&quot;, serif" class="jsx-a4d80d259781d393 relative px-8 py-2.5 text-lg font-semibold sm:font-medium rounded-full shadow-lg disabled:cursor-not-allowed flex items-center justify-center mx-auto overflow-hidden"><span>Mở thiệp</span>
+              </div><button style="background-color:#ba4a59;color:#ffffff;box-shadow:0 4px 14px rgba(186, 74, 89, 0.35);font-family:&quot;Lora&quot;, &quot;Times New Roman&quot;, serif" class="btn-click-active-thiep jsx-a4d80d259781d393 relative px-8 py-2.5 text-lg font-semibold sm:font-medium rounded-full shadow-lg disabled:cursor-not-allowed flex items-center justify-center mx-auto overflow-hidden"><span>Mở thiệp</span>
                 <div style="background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);animation:shine 3s ease-in-out infinite" class="jsx-a4d80d259781d393 absolute top-0 h-full w-8 pointer-events-none"></div>
               </button>
             </div>
@@ -441,7 +441,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
     <div data-rht-toaster="" style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
@@ -506,45 +506,7 @@
         });
       });
     </script>
-    <script>
-      window.addEventListener("load", function() {
-
-        setTimeout(() => {
-
-          let speed = 0.5;
-          let autoScrolling = true;
-
-          function autoScroll() {
-            if (!autoScrolling) return;
-
-            window.scrollBy(0, speed);
-
-            if (window.innerHeight + window.scrollY < document.body.scrollHeight) {
-              requestAnimationFrame(autoScroll);
-            }
-          }
-
-          autoScroll();
-
-          // Khi người dùng cuộn chuột
-          window.addEventListener("wheel", function() {
-            autoScrolling = false;
-          });
-
-          // Khi chạm màn hình (mobile)
-          window.addEventListener("touchstart", function() {
-            autoScrolling = false;
-          });
-
-          // Khi dùng phím
-          window.addEventListener("keydown", function() {
-            autoScrolling = false;
-          });
-
-        }, 1000);
-
-      });
-    </script>
+  
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -619,6 +581,49 @@
     </script>
 
 
+<script>
+let speed = 0.5;
+let autoScrolling = false;
+
+function autoScroll() {
+  if (!autoScrolling) return;
+
+  window.scrollBy(0, speed);
+
+  if (window.innerHeight + window.scrollY < document.body.scrollHeight) {
+    requestAnimationFrame(autoScroll);
+  }
+}
+
+// click mở form
+document.querySelectorAll('.btn-click-active-thiep').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+
+    const parent = this.closest('.box-container-member-form');
+    if(parent){
+      parent.classList.add('active');
+    }
+
+    // bắt đầu auto scroll
+    autoScrolling = true;
+    autoScroll();
+  });
+});
+
+// dừng khi người dùng tương tác
+window.addEventListener("wheel", function() {
+  autoScrolling = false;
+});
+
+window.addEventListener("touchstart", function() {
+  autoScrolling = false;
+});
+
+window.addEventListener("keydown", function() {
+  autoScrolling = false;
+});
+</script>
 </body>
 
 </html>
