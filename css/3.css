@@ -15964,5 +15964,9 @@ margin:10px 5px;
 .flex-group-gd span span {
     font-size: 19px !important;
 }
-
+.imgase-item-2 {
+    border: 10px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 337px;
+}
 }
